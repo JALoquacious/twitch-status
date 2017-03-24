@@ -1,0 +1,31 @@
+html
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    title Twitch TV Status
+    link(href='https://fonts.googleapis.com/css?family=Space+Mono:100,400,700', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', type='text/css', href='style.css')
+  body(ng-app='TwitchStatus', ng-controller='MainCtrl')
+    #headbar
+      h1 Twitch TV Status
+      img#arrow(src='https://dl.dropboxusercontent.com/s/hgsrvmr97d58nj4/arrow_sm.png')
+    #navbar
+      ul
+        li#all
+          a(href='#', ng-click='showAll()') All
+        li#on
+          a(href='#', ng-click='showOnline()') Online
+        li#off
+          a(href='#', ng-click='showOffline()') Offline
+    #searchbar
+      input(type='text', placeholder='Search for channel...', ng-model='term')
+    .container(ng-repeat='user in users | online: status | filter: term')
+      a(ng-href='{{user.url}}', target='_blank')
+        .profile(ng-class-odd="'odd'", ng-class-even="'even'")
+          h3 {{user.display_name}}
+          p
+            | Stream: {{user.game}} / Status: {{(user.stream.viewers && user.stream.viewers + " viewers") || "OFFLINE"}}
+          img.logo(ng-src='{{user.logo}}')
+          img.banner(ng-src='{{user.profile_banner}}')
+          p.marquee {{user.status}}
+    script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js')
+    script(src='logic.js')

@@ -1,0 +1,193 @@
+@keyframes "blink" {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@-webkit-keyframes "blink" {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes "marquee" {
+    0% {
+        transform: translate(100%, 0);
+    }
+    100% {
+        transform: translate(-100%, 0);
+    }
+}
+html {
+    font-family: 'Space Mono', sans-serif;
+}
+a {
+    color: white;
+    text-decoration: none;
+}
+input[type=text] {
+    transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+}
+input[type=text]:focus {
+    border: 2px solid #D26835;
+    box-shadow: 0 0 15px #D26835;
+}
+textarea {
+    transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+}
+textarea:focus {
+    border: 2px solid #D26835;
+    box-shadow: 0 0 15px #D26835;
+}
+.container {
+    margin: 1em auto;
+    width: 85%;
+}
+.profile {
+    padding: .1em;
+    transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+}
+.profile:hover {
+    border-style: solid;
+    border-width: thin;
+    border-color: #D26835;
+    box-shadow: 0 0 2em #D26835;
+    transform: translate(20px, 0px);
+    cursor: pointer;
+}
+.profile img {
+    border-color: #222;
+    border-style: solid;
+    border-width: medium;
+    height: 10vmax;
+}
+.logo {
+    max-width: 15vmax;
+    min-width: 10vmin;
+}
+.banner {
+    max-width: 80%;
+    min-width: 70%;
+}
+.even {
+    text-align: center;
+    background-color: #2C3E50;
+}
+.odd {
+    text-align: center;
+    background-color: #555555;
+}
+.lit {
+    border-style: solid;
+    border-width: thick;
+    border-color: #2C3E50;
+    border-top: none;
+    box-shadow: 0 0 1em #2C3E50;
+}
+#headbar {
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+    padding: 2em;
+    height: 6em;
+    background-color: #2C3E50;
+}
+#arrow {
+    visibility: collapse;
+}
+#searchbar {
+    background-color: #222;
+    text-align: center;
+    padding: .5em;
+}
+#navbar {
+    background-color: #222;
+    text-align: center;
+}
+#navbar ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+#navbar a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+}
+#navbar a:hover {
+    border-style: solid;
+    border-width: thin;
+    border-color: #D26835;
+    box-shadow: 0 0 1em #D26835;
+}
+#navbar a:active {
+    transform: scale(0.7);
+}
+.marquee {
+    margin: 0 auto;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    -webkit-animation: marquee 15s linear infinite;
+    -moz-animation: marquee 15s linear infinite;
+    -ms-animation: marquee 15s linear infinite;
+    -o-animation: marquee 15s linear infinite;
+    animation: marquee 15s linear infinite;
+}
+.marquee:hover {
+    animation-play-state: paused;
+}
+@media screen and (min-width: 600px) {
+    #navbar li {
+        width: 5.5em;
+        height: 2em;
+        line-height: 2em;
+        font-size: 1.4em;
+        display: inline-block;
+    }
+    #arrow {
+        left: 0%;
+        top: -2em;
+        position: relative;
+        text-align: center;
+        margin: 0 auto;
+        padding: 0;
+        visibility: visible;
+        -moz-transition: all 0.5s ease-in-out;
+        -webkit-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        -ms-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        -moz-animation: blink normal 1.5s infinite ease-in-out;
+        -webkit-animation: blink normal 1.5s infinite ease-in-out;
+        -ms-animation: blink normal 1.5s infinite ease-in-out;
+        animation: blink normal 1.5s infinite ease-in-out;
+    }
+}
