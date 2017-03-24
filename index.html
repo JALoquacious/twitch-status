@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+    <title>Twitch TV Status</title>
+    <link href='https://fonts.googleapis.com/css?family=Space+Mono:100,400,700' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' type='text/css' href='css/style.css' />
+</head>
+
+<body ng-app='TwitchStatus' ng-controller='MainCtrl'>
+    <div id='headbar'>
+        <h1>Twitch TV Status</h1>
+        <img id='arrow' src='https://dl.dropboxusercontent.com/s/hgsrvmr97d58nj4/arrow_sm.png'>
+    </div>
+    <div id='navbar'>
+        <ul>
+            <li id='all'><a href='#' ng-click='showAll()'>All</a></li>
+            <li id='on'><a href='#' ng-click='showOnline()'>Online</a></li>
+            <li id='off'><a href='#' ng-click='showOffline()'>Offline</a></li>
+        </ul>
+    </div>
+    <div id='searchbar'>
+        <input type='text' placeholder='Search for channel...' ng-model='term'>
+    </div>
+    <div class='container' ng-repeat='user in users | online: status | filter: term'>
+        <a ng-href='{{user.url}}' target="_blank">
+            <div class='profile' ng-class-odd="'odd'" ng-class-even="'even'">
+                <h3>{{user.display_name}}</h3>
+                <p>Stream: {{user.game}} / Status: {{(user.stream.viewers && user.stream.viewers + " viewers") || "OFFLINE"}}</p>
+                <img class='logo' ng-src='{{user.logo}}'>
+                <img class='banner' ng-src='{{user.profile_banner}}'>
+                <p class='marquee'>{{user.status}}</p>
+            </div>
+        </a>
+    </div>
+    <script type='text/javascript' src='scripts/angular_1.4.9.min.js'></script>
+    <script type='text/javascript' src='scripts/logic.js'></script>
+</body>
